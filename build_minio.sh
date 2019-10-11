@@ -5,6 +5,8 @@ latesttag=$(git describe --tags --abbrev=0)
 echo checking out ${latesttag}
 git checkout ${latesttag}
 
+sed -i 's/^GOOS := .*$/GOOS := linux/' Makefile
+sed -i 's/^GOARCH := .*$/GOARCH := arm/' Makefile
 sed -i '5 i\GOARM := $(shell go env GOARM)' Makefile
 
 env GOOS=linux GOARCH=arm GOARM=7 make
