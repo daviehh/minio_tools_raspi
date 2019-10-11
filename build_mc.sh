@@ -7,6 +7,6 @@ git checkout ${latesttag}
 
 sed -i 's/^GOARCH := .*$/GOARCH := arm/' Makefile
 sed -i 's/^GOOS := .*$/GOOS := linux/' Makefile
-sed -i '5 i\GOARM := $(shell go env GOARM)' Makefile
+sed -i '5 i\GOARM := 7' Makefile
 
-env GOOS=linux GOARCH=arm GOARM=7 make
+make
