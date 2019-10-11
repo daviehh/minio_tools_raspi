@@ -1,0 +1,25 @@
+if: tag IS present
+language: go
+os:
+- linux
+go:
+- 1.13.x
+addons:
+  apt:
+    packages:
+    - git
+script:
+- bash build_mc.sh && bash build_minio.sh
+before_deploy:
+- git config --local user.name "daviehh"
+- git config --local user.email "25255906+daviehh@users.noreply.github.com"
+deploy:
+  provider: releases
+  api_key:
+    secure: kq/qbHEpFVFuLcIEgibRG2y0CPzLOfQhRGptcaJzePvemNxRtQEHOM90XFdK6dtRr0BhJ7RcfwWR3GCG8sOBC7RkZN1EMWljrt/tIs2pr8ZzD/yrDbLpWTbBazE4mDBh3MYkaVoqvkW0r/Um9u3CHD/tcF2jtCwfgaOjsrAiDpoOj7d3KzGC703kRBgrAVffL40i2ihk4nA1q/JUafdAjJJArbufeTEtIIuSLPSBrev4urBtpayQ7g8/QrS0VvMr1ivJnvKIyz4W2tGaYSrwliqnLk98KMOe/PpsJnVWyJFQ3YYSUdvvCPKtWhKghNYQvreGKFb3GZKPPiFgDvZXcR9TnDyafqqO2iV4sQChdfSv+uUfMbq78lwNHbxpKZOeedcDyXJ5mM1XW47eHHJwukkZO93APQ8aBdoUcuWzfxD3YZs+2lPFkkmsPX/bl/7RcVPYbMzHiyH8RcjTIn0FM2J9xubP1/1zZLTiggP7zZc+lvOPQve4zxG6Xd4sjGEqNnre8MRwOBa+EQU5hjophk6cnj9hSlJjtVb/ys15LEMys+nmRLBE7oJRC39Tap/Myss4z7TeH2EBN20h26CTFkMWA68WfBMrWmYOaXihDDAHTi1Acs15N49ASaOMpB79QKY8AiIgKgRBLgnCpex9fWyiBBz302zNlcdz4PNelqg=
+  file:
+    - "mc/mc"
+    - "minio/minio"
+  on:
+    repo: daviehh/minio_raspi
+    tags: true
