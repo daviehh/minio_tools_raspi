@@ -16,6 +16,8 @@ before_deploy:
 - git config --local user.email "25255906+daviehh@users.noreply.github.com"
 - shasum -a 256 mc/mc >> shasum.txt
 - shasum -a 256 minio/minio >> shasum.txt
+- cat shasum.txt
+- ls -lah
 deploy:
   provider: releases
   api_key:
