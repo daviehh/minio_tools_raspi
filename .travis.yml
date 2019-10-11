@@ -14,8 +14,8 @@ script:
 before_deploy:
 - git config --local user.name "daviehh"
 - git config --local user.email "25255906+daviehh@users.noreply.github.com"
-- shasum -a 256 mc/mc
-- shasum -a 256 minio/minio
+- shasum -a 256 mc/mc >> shasum.txt
+- shasum -a 256 minio/minio >> shasum.txt
 deploy:
   provider: releases
   api_key:
@@ -23,6 +23,7 @@ deploy:
   file:
   - mc/mc
   - minio/minio
+  - shasum.txt
   on:
     repo: daviehh/minio_tools_raspi
     tags: true
