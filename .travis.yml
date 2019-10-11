@@ -1,3 +1,4 @@
+dist: bionic
 language: go
 os:
 - linux
@@ -7,11 +8,14 @@ addons:
   apt:
     packages:
     - git
+    - libdigest-sha-perl
 script:
 - bash build_mc.sh && bash build_minio.sh
 before_deploy:
 - git config --local user.name "daviehh"
 - git config --local user.email "25255906+daviehh@users.noreply.github.com"
+- shasum -a 256 mc/mc
+- shasum -a 256 minio/minio
 deploy:
   provider: releases
   api_key:
