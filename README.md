@@ -1,4 +1,4 @@
-# minio_tools_raspi
+# minio tools: binary auto-build
 [![Build Status](https://travis-ci.com/daviehh/minio_tools_raspi.svg?branch=master)](https://travis-ci.com/daviehh/minio_tools_raspi)
 
 build minio and mc for the raspberry pi (armv7)
