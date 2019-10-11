@@ -17,9 +17,9 @@ before_deploy:
 - shasum -a 256 mc/mc >> shasum.txt
 - shasum -a 256 minio/minio >> shasum.txt
 - cat shasum.txt
-- ls -lah
 deploy:
   provider: releases
+  skip_cleanup: true
   api_key:
     secure: G4gnlx0kdJvlV242E4fIlGm5im/6RZcsKELvZODSnuSASJso2I0u76WPMiJbfiCL6t40oQf1gblLOFkvKOYT1tVA8ttX8LvxRTBxmF7bik9NVWzEH6F6FLwSBUd7yv/5uqrn9bKfILF2LiIGCo4J5sP5clOL3gH5an+8ZVa2xGVoQ9/RJMD4bFuruvD3TYCCW2UapPQuPFL1Oh6fKee4bdmfhUzKRCU5avkL6GANyJaVF/CzldT3k9HqkHtjggdxxK7kAYnftWH0gOe+bVUmyKH3g7bhCwaWyP5cqRB+1frhM3f6D/e6xkf4KcpfObGzpbHpR1PQyeYVKSdNaHFZMEU0GZJ6iuAOUzDb9rbd0k4X3xl80W1YQxEcH5OIj/pHsJ/Mk4w872EnYDJmGUbGjjAWvvwVMvQQ4wSRT1TP/SQJ2kx4dk8fHpJ7eJjVGUslg/oq/Gv75uNup2QEZdfTeXhPv0adU+a8+v3jDFOTNofsT2hcJXJtkfEl14IpZPth6mzzj8qCMy12H2qxQuWuC1MhDIKe6DwRMneiWD8aQ5wSWDOob319Jp4GNLc+mxVyX1oG3eWf1Gi867MQL+0cGgJfH5lH0nltV0gC6BJoM6LxspCAabVOl1Kn7VTemTkFrKJVP4WQModNLDZYOXlUfyCCePus3Z2jWBr95O2j7C8=
   file:
